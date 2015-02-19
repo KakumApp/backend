@@ -58,3 +58,4 @@ venv
 *.pyc
 staticfiles
 .idea
+.env
