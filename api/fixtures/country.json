@@ -1,0 +1,56 @@
+[
+  {
+    "model": "api.country",
+    "fields": {
+      "name": "South Sudan"
+    }
+  },
+  {
+    "model": "api.country",
+    "fields": {
+      "name": "Sudan"
+    }
+  },
+  {
+    "model": "api.country",
+    "fields": {
+      "name": "Somalia"
+    }
+  },
+  {
+    "model": "api.country",
+    "fields": {
+      "name": "Ethiopia"
+    }
+  },
+  {
+    "model": "api.country",
+    "fields": {
+      "name": "D.R. Congo"
+    }
+  },
+  {
+    "model": "api.country",
+    "fields": {
+      "name": "Burundi"
+    }
+  },
+  {
+    "model": "api.country",
+    "fields": {
+      "name": "Rwanda"
+    }
+  },
+  {
+    "model": "api.country",
+    "fields": {
+      "name": "Eritrea"
+    }
+  },
+  {
+    "model": "api.country",
+    "fields": {
+      "name": "Uganda"
+    }
+  }
+]
