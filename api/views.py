@@ -1,6 +1,8 @@
 from api.models import Country, Place, Target
 from rest_framework import viewsets
-from api.serializers import CountrySerializer, PlaceSerializer, TargetSerializer
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from api.serializers import CountrySerializerList, CountrySerializerDetail, PlaceSerializer, TargetSerializer
 
 # Create your views here.
 
@@ -10,9 +12,24 @@ class TargetViewSet(viewsets.ModelViewSet):
     serializer_class = TargetSerializer
 
 
-class CountryViewSet(viewsets.ReadOnlyModelViewSet):
+'''class CountryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Country.objects.all()
-    serializer_class = CountrySerializer
+    serializer_class = CountrySerializerList'''
+
+
+class CountryViewSet(viewsets.ViewSet):
+    # queryset = Country.objects.all()
+
+    def list(self, request):
+        queryset = Country.objects.all()
+        serializer = CountrySerializerList(queryset, many=True, context={'request':request})
+        return Response(serializer.data)
+
+    def retrieve(self, request, pk=None):
+        queryset = Country.objects.all()
+        country = get_object_or_404(queryset, pk=pk)
+        serializer = CountrySerializerDetail(country, context={'request':request})
+        return Response(serializer.data)
 
 
 class PlaceViewSet(viewsets.ModelViewSet):
