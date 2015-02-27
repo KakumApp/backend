@@ -5,7 +5,7 @@ from rest_framework.routers import DefaultRouter
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register(r'targets', views.TargetViewSet)
-router.register(r'countries', views.CountryViewSet)
+router.register(r'countries', views.CountryViewSet, base_name='country')
 router.register(r'places', views.PlaceViewSet)
 
 # The API URLs are now determined automatically by the router.
