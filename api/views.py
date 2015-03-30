@@ -1,4 +1,5 @@
 from api.models import Country, Place, Target
+from rest_framework import filters
 from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
@@ -10,11 +11,8 @@ from api.serializers import CountrySerializerList, CountrySerializerDetail, Plac
 class TargetViewSet(viewsets.ModelViewSet):
     queryset = Target.objects.all()
     serializer_class = TargetSerializer
-
-
-'''class CountryViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Country.objects.all()
-    serializer_class = CountrySerializerList'''
+    filter_backends = (filters.SearchFilter,)
+    search_fields = ('first_name', 'last_name')
 
 
 class CountryViewSet(viewsets.ViewSet):
@@ -22,13 +20,13 @@ class CountryViewSet(viewsets.ViewSet):
 
     def list(self, request):
         queryset = Country.objects.all()
-        serializer = CountrySerializerList(queryset, many=True, context={'request':request})
+        serializer = CountrySerializerList(queryset, many=True, context={'request': request})
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         queryset = Country.objects.all()
         country = get_object_or_404(queryset, pk=pk)
-        serializer = CountrySerializerDetail(country, context={'request':request})
+        serializer = CountrySerializerDetail(country, context={'request': request})
         return Response(serializer.data)
 
 
