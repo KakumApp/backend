@@ -17,6 +17,15 @@ class PlaceSerializer(serializers.ModelSerializer):
 class TargetSerializer(serializers.ModelSerializer):
     # places = serializers.ManyRelatedField(source='places.name', child_relation=Place)
     # places = serializers.HyperlinkedRelatedField(view_name='place-detail', queryset=Place.objects.all(), many=True)
+    # places = PlaceSerializer(many=True)
+
+    class Meta:
+        model = Target
+        fields = ('url', 'first_name', 'last_name', 'other_name', 'phone_no', 'photo', 'places')
+
+
+class TargetSerializerList(serializers.ModelSerializer):
+
     places = PlaceSerializer(many=True)
 
     class Meta:
