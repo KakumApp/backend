@@ -12,7 +12,7 @@ class TargetViewSet(viewsets.ModelViewSet):
     queryset = Target.objects.all()
     serializer_class = TargetSerializer
     filter_backends = (filters.SearchFilter,)
-    search_fields = ('first_name', 'last_name', 'other_name', 'places__name')
+    search_fields = ('first_name', 'last_name', 'other_name', 'phone_no', 'places__name')
 
     # override to use a slightly modified serializer
     # framework doesn't support nested serializers for create
