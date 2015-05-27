@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+from django.utils.datetime_safe import datetime
 
 
 class Country(models.Model):
@@ -17,8 +18,9 @@ class Target(models.Model):
     last_name = models.CharField(max_length=50)
     other_name = models.CharField(max_length=50, null=True, blank=True)
     phone_no = models.CharField(max_length=20)
-    photo = models.TextField()
+    photo = models.TextField(null=True, blank=True)
     places = models.ManyToManyField(Place, null=False)
+    created_time = models.DateTimeField(auto_now_add=True, default=datetime.now)
 
 
 class Intermediary(models.Model):

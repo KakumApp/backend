@@ -11,7 +11,7 @@ from api.serializers import CountrySerializerList, CountrySerializerDetail, Plac
 class TargetViewSet(viewsets.ModelViewSet):
     queryset = Target.objects.all()
     serializer_class = TargetSerializer
-    filter_backends = (filters.SearchFilter,)
+    filter_backends = (filters.SearchFilter, filters.OrderingFilter)
     search_fields = ('first_name', 'last_name', 'other_name', 'phone_no', 'places__name')
 
     # override to use a slightly modified serializer

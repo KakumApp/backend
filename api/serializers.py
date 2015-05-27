@@ -30,7 +30,7 @@ class TargetSerializerList(serializers.ModelSerializer):
 
     class Meta:
         model = Target
-        fields = ('url', 'first_name', 'last_name', 'other_name', 'phone_no', 'photo', 'places')
+        fields = ('id', 'url', 'first_name', 'last_name', 'other_name', 'phone_no', 'photo', 'places', 'created_time')
 
 
 class CountrySerializerList(serializers.HyperlinkedModelSerializer):
