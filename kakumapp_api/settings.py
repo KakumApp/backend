@@ -57,9 +57,15 @@ WSGI_APPLICATION = 'kakumapp_api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-import dj_database_url
+
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'kakumapp',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost'
+    }
 }
 
 # Internationalization
